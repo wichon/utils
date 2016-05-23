@@ -1,2 +1,2 @@
-# utils
+# Utils
 A library of utilities, scripts, configuration files, etc ...
