@@ -1,0 +1,82 @@
+" Vundle Settings
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" Behavior Plugins
+Plugin 'https://github.com/scrooloose/nerdtree.git'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'vim-airline/vim-airline'
+
+" Theme Plugins
+Plugin 'git://github.com/altercation/vim-colors-solarized.git'
+Plugin 'https://github.com/jdkanani/vim-material-theme'
+
+" Syntax Plugins
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'dag/vim-fish'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+syntax enable
+filetype plugin indent on    " required
+" End Vundle Settings
+
+" NERDTree Settings
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" End NERDTree Settings
+
+" NERDTree-git Settings
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+" End NERDTree-git Settings
+
+" Airline Settings
+let g:airline_powerline_fonts = 1
+set laststatus=2
+" End Airline
+
+" Theme
+set t_Co=256 
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans = 0 
+let g:solarized_degrade = 0 
+let g:solarized_bold = 1 
+let g:solarized_underline = 1 
+let g:solarized_italic = 1 
+let g:solarized_style = "dark"
+let g:solarized_contrast = "low"
+colorscheme material-theme
+" End Theme
+
+" general
+set shell=bash
+" Tabs and indent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set smarttab
